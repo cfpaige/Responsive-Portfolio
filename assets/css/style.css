@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-/* html, body {
-    height: 100%;
-} */
-
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-image: url('../images/background-papyrus.png');
@@ -52,7 +48,9 @@ li a.active {
     color: white;
     background-color: #4aaaa5;
   }
-  
+
+
+/* can't figure out how to pull out this ID to the top - might have to redesign the header */
 #navbar-name {
     float: left;
     background-color: #4aaaa5;
@@ -75,7 +73,7 @@ h2 {
     margin-right: auto;
     border: 0 1px;
     border-color: #dddddd;
-    overflow: hidden;
+    overflow: visible;
   }
 
 #about-img {
@@ -85,11 +83,17 @@ h2 {
 
 .portfolio-wrap {
   display: flex;
-  flex-flow: wrap-reverse;
-  justify-content: space-between;
+  flex-flow: wrap;
+  justify-content: center;
 }
 
-.footer {
+/* nope, still not working */
+.empty {
+  display: block;
+  visibility: hidden;
+}
+
+footer {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -100,7 +104,7 @@ h2 {
     color: #ffffff;
 }
 
-/* portfolio image effects code from https://codepen.io/Paulie-D/pen/2fb6dbdbae0a5bd8274a22ee152504e2: */
+/* portfolio image effects code from https://codepen.io/Paulie-D/pen/2fb6dbdbae0a5bd8274a22ee152504e2 */
 
 figure {
     display: inline-block;
@@ -114,11 +118,6 @@ figure {
     text-align: center;
   }
   
-/* cannot figure out how to put a solid line/background behind the caption
-figcaption {
-  background-color: #4aaaa5;
-} */
-
   img {
     display: block;
   }
@@ -177,3 +176,35 @@ figcaption {
     padding: 20px;
   }
   
+/* media query below */
+
+@media screen and (max-height: 640px) {
+  footer.hidden {
+    position: unset;
+    display: none;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  header {
+    position: static;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    position: static;
+    margin: none;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  header {
+    position: static;
+    margin: none;
+  }
+
+  #navbar-name {
+    display: none;
+  }
+}
